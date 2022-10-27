@@ -10,14 +10,16 @@ use Illuminate\Support\Carbon;
 class Link extends Model
 {
     use HasFactory;
-    const STATUS_INDEX="indexed";
-    const STATUS_NOINDEX="noindex";
-    const STATUS_NOSTATUS="noStatus";
-    const STATUS=[self::STATUS_INDEX,self::STATUS_NOINDEX,self::STATUS_NOSTATUS];
+
+    const STATUS_INDEX = "indexed";
+    const STATUS_NOINDEX = "noindex";
+    const STATUS_NOSTATUS = "noStatus";
+    const STATUS = [self::STATUS_INDEX, self::STATUS_NOINDEX, self::STATUS_NOSTATUS];
     protected $fillable = [
         'user_id', 'link', 'slug'
     ];
-    protected $casts=['status_changed'=>'datetime'];
+    protected $casts = ['status_changed' => 'datetime'];
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
@@ -26,22 +28,35 @@ class Link extends Model
     public static function createWithSlug(User $user, $link)
     {
 //        dd($link);
-        $links=collect(Link::query()->pluck('link'));
-            foreach ($link as $key=>$value){
+        $links = Link::count() > 0 ? collect(Link::query()->pluck('link')) : null;
+//        dd($links,);
+        if (is_array($link)) {
+            foreach ($link as $value) {
 //                dd(!($links->contains($value)));
-                if(!($links->contains($value))){
+//            dd($link);
+                if (!($links->contains($value)) || is_null($links)) {
                     $count = $user->link()->count() + 1;
                     $attributes = [
                         'user_id' => $user->id,
                         'link' => $value,
                         'slug' => $user->id . '$' . $count,
-                        'status_changed'=>Carbon::now(),
+                        'status_changed' => Carbon::now(),
                     ];
-                    $result= static::create($attributes);
+                    $result = static::create($attributes);
                 }
 //                dd($result);
             }
-           return isset($result) ?  $result : redirect()->back();
+        }else{
+            $count = $user->link()->count() + 1;
+            $attributes = [
+                'user_id' => $user->id,
+                'link' => $link,
+                'slug' => $user->id . '$' . $count,
+                'status_changed' => Carbon::now(),
+            ];
+            $result = static::create($attributes);
+        }
+        return isset($result) ? $result : redirect()->back();
     }
 
 
@@ -49,19 +64,20 @@ class Link extends Model
     {
         return $this->active ? 'فعال' : 'غیرفعال';
     }
+
     public function isIndex()
     {
-        return $this->status===self::STATUS_INDEX;
+        return $this->status === self::STATUS_INDEX;
     }
 
     public function NoIndex()
     {
-        return $this->status===self::STATUS_NOINDEX;
+        return $this->status === self::STATUS_NOINDEX;
     }
 
     public function NoStatus()
     {
-        return $this->status===self::STATUS_NOSTATUS;
+        return $this->status === self::STATUS_NOSTATUS;
     }
 
 
