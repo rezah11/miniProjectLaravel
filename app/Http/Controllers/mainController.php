@@ -68,11 +68,11 @@ class mainController extends Controller
     {
         $this->authorize('create', Link::class);
 
-//        $name = Storage::disk('local')->put('test', $request->linkFile);
+        $name = Storage::disk('local')->put('test', $request->linkFile);
 //        $hashFileName=explode('test/',$name)[1];
 //dd($name);
         if (isset($request->linkFile)) {
-            $file = fopen(storage_path('app\\' . $name), 'r');
+            $file = fopen(storage_path('app/' . $name), 'r');
             $arr = [];
             while (!feof($file)) {
 
@@ -164,6 +164,7 @@ class mainController extends Controller
 //                    set_time_limit(60);
             }
             $link = Link::query()->findOrfail($id);
+//            dd($link);
             $articleUrl = preg_split('@/@', $link->link, -1, PREG_SPLIT_NO_EMPTY);
             $arrayLength = count($articleUrl);
             $differTime = now()->diff($link->status_changed)->h;
@@ -195,7 +196,7 @@ class mainController extends Controller
 //            dd($url);
             $promise = $client->get($url);
 //            dd($promise->getBody()->getContents());
-            return \response($promise->getBody()->getContents());
+           return $promise->getBody()->getContents();
 //            $client->sendAsync($this->handleReq($url))->then(function ($response) {
 //                dd($response);
 //                 return $response->getBody()->getContents();

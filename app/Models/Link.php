@@ -40,7 +40,6 @@ class Link extends Model
                         'user_id' => $user->id,
                         'link' => $value,
                         'slug' => $user->id . '$' . $count,
-                        'status_changed' => Carbon::now(),
                     ];
                     $result = static::create($attributes);
                 }
@@ -52,7 +51,6 @@ class Link extends Model
                 'user_id' => $user->id,
                 'link' => $link,
                 'slug' => $user->id . '$' . $count,
-                'status_changed' => Carbon::now(),
             ];
             $result = static::create($attributes);
         }

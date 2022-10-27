@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ed9d240-ff9e-488f-bba9-0185f2d426ce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/mini-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mini-project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/mainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/mainController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Link.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Link.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/a.txt" beforeDir="false" afterPath="$PROJECT_DIR$/storage/a.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/cpwMSnr0VfQKpYnDAf9eMsWK6iAI7uoSzTBrkAEZ" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/qAqj8yxvR6lxfZokUjxbrUxN7Z2qMb7cI0y07Khr" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +21,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -157,6 +168,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -180,7 +192,7 @@
       <option name="presentableId" value="Default" />
       <updated>1666862457511</updated>
       <workItem from="1666862462075" duration="108000" />
-      <workItem from="1666863504763" duration="3340000" />
+      <workItem from="1666863504763" duration="6914000" />
     </task>
     <servers />
   </component>
